@@ -2,7 +2,7 @@ export const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark main-color py-3">
       <div className="container-fluid">
-        <span className="navbar-brand">Luv 2 Read</span>
+        <span className="navbar-brand">Explore Books</span>
         <button
           className="navbar-toggler"
           type="button"
