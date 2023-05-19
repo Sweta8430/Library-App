@@ -1,15 +1,15 @@
 import React from "react";
 import "./App.css";
 import { Header } from "../src/Layouts/Header";
-import { ExploreTopBooks } from "./Components/ExploreTopBooks";
+import { Footer } from "./Layouts/Footer";
+import { HomePage } from "./Components/HomePage";
 
-function App() {
+export const App = () => {
   return (
     <div className="App">
       <Header />
-      <ExploreTopBooks />
+      <HomePage />
+      <Footer />
     </div>
   );
-}
-
-export default App;
+};
