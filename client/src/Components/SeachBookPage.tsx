@@ -3,18 +3,29 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Spinner } from "../Utils/Spinner";
 import { SearchEachBook } from "./SearchEachBook";
+import { Pagination } from "../Utils/Pagination";
 
 export const SearchBookPage = () => {
   const [books, setBooks] = useState<BookModel[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [perPage] = useState(5);
+  const [totalAmountOfBook, setTotalAmountOfBook] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
   useEffect(() => {
     const getBooks = async () => {
       const baseUrl = "http://localhost:8080/api/books";
-      const url = `${baseUrl}?page=0&size=5`;
+      const url = `${baseUrl}?page=${currentPage - 1}&size=${perPage}`;
       try {
         const response = await axios.get(url);
         const responseData = response.data._embedded.books;
+        const { page } = response.data;
+        console.log(page.totalElements);
+        console.log(page.totalPages);
+        setTotalAmountOfBook(page.totalElements);
+        setTotalPages(page.totalPages);
+
         const loadedBooks: BookModel[] = responseData.map(
           (bookData: BookModel) => ({
             id: bookData.id,
@@ -35,7 +46,9 @@ export const SearchBookPage = () => {
       }
     };
     getBooks();
-  }, []);
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
   if (isLoading) {
     return <Spinner />;
   }
@@ -46,6 +59,15 @@ export const SearchBookPage = () => {
       </div>
     );
   }
+  const indexOfLastBook: number = currentPage * perPage;
+  const indexOfFirstBook: number = indexOfLastBook - perPage;
+  let lastItem =
+    perPage * currentPage <= totalAmountOfBook
+      ? perPage * currentPage
+      : totalAmountOfBook;
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
   return (
     <div>
       <div className="container">
@@ -107,12 +129,21 @@ export const SearchBookPage = () => {
             </div>
           </div>
           <div className="mt-3">
-            <h5>Number of Results: (22)</h5>
+            <h5>Number of Results: ({totalAmountOfBook})</h5>
           </div>
-          <p>1 to 5 of 22 Items:</p>
+          <p>
+            {indexOfFirstBook + 1} to {lastItem} of {totalAmountOfBook} Items:
+          </p>
           {books.map((book) => (
             <SearchEachBook book={book} key={book.id} />
           ))}
+          {totalPages > 1 && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              paginate={paginate}
+            />
+          )}
         </div>
       </div>
     </div>
