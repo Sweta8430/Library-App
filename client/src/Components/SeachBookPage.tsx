@@ -13,16 +13,29 @@ export const SearchBookPage = () => {
   const [perPage] = useState(5);
   const [totalAmountOfBook, setTotalAmountOfBook] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
+  const [search, setSearch] = useState("");
+  const [searchUrl, setSearchUrl] = useState("");
+  const [categorySelection, setCategorySelection] = useState("Book Category");
   useEffect(() => {
     const getBooks = async () => {
       const baseUrl = "http://localhost:8080/api/books";
-      const url = `${baseUrl}?page=${currentPage - 1}&size=${perPage}`;
+
+      let url = "";
+
+      if (searchUrl === "") {
+        url = `${baseUrl}?page=${currentPage - 1}&size=${perPage}`;
+      } else {
+        let searchWithPage = searchUrl.replace(
+          "<pageNumber>",
+          `${currentPage - 1}`
+        );
+        url = baseUrl + searchWithPage;
+      }
       try {
         const response = await axios.get(url);
         const responseData = response.data._embedded.books;
         const { page } = response.data;
-        console.log(page.totalElements);
-        console.log(page.totalPages);
+
         setTotalAmountOfBook(page.totalElements);
         setTotalPages(page.totalPages);
 
@@ -47,7 +60,7 @@ export const SearchBookPage = () => {
     };
     getBooks();
     window.scrollTo(0, 0);
-  }, [currentPage]);
+  }, [currentPage, searchUrl]);
 
   if (isLoading) {
     return <Spinner />;
@@ -59,6 +72,34 @@ export const SearchBookPage = () => {
       </div>
     );
   }
+  const searchHandleChange = () => {
+    setCurrentPage(1);
+    if (search === "") {
+      setSearchUrl("");
+    } else {
+      setSearchUrl(
+        `/search/findByTitleContaining?title=${search}&page=<pageNumber>&size=${perPage}`
+      );
+    }
+    setCategorySelection("Book Category");
+  };
+  const categoryHandleChange = (value: string) => {
+    setCurrentPage(1);
+    if (
+      value.toLowerCase() === "fe" ||
+      value.toLowerCase() === "be" ||
+      value.toLowerCase() === "data" ||
+      value.toLowerCase() === "devops"
+    ) {
+      setCategorySelection(value);
+      setSearchUrl(
+        `/search/findByCategory?category=${value}&page=<pageNumber>&size=${perPage}`
+      );
+    } else {
+      setCategorySelection("All");
+      setSearchUrl(`?page=<pageNumber>&size=${perPage}`);
+    }
+  };
   const indexOfLastBook: number = currentPage * perPage;
   const indexOfFirstBook: number = indexOfLastBook - perPage;
   let lastItem =
@@ -79,9 +120,15 @@ export const SearchBookPage = () => {
                   type="search"
                   className="form-control me-2"
                   placeholder="Search"
-                  aria-labelledby="Search"
+                  aria-labelledby="search"
+                  onChange={(e) => setSearch(e.target.value)}
                 />
-                <button className="btn btn-outline-success">Search</button>
+                <button
+                  className="btn btn-outline-success"
+                  onClick={() => searchHandleChange()}
+                >
+                  Search
+                </button>
               </div>
             </div>
             <div className="col-4">
@@ -93,33 +140,33 @@ export const SearchBookPage = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Category
+                  {categorySelection}
                 </button>
                 <ul
                   className="dropdown-menu"
                   aria-labelledby="dropdownMenuButton1"
                 >
-                  <li>
+                  <li onClick={() => categoryHandleChange("All")}>
                     <a href="#" className="dropdown-item">
-                      ALL
+                      All
                     </a>
                   </li>
-                  <li>
+                  <li onClick={() => categoryHandleChange("FE")}>
                     <a href="#" className="dropdown-item">
-                      FrontEnd
+                      Front End
                     </a>
                   </li>
-                  <li>
+                  <li onClick={() => categoryHandleChange("BE")}>
                     <a href="#" className="dropdown-item">
-                      BackEnd
+                      Back End
                     </a>
                   </li>
-                  <li>
+                  <li onClick={() => categoryHandleChange("Data")}>
                     <a href="#" className="dropdown-item">
                       Data
                     </a>
                   </li>
-                  <li>
+                  <li onClick={() => categoryHandleChange("Devops")}>
                     <a href="#" className="dropdown-item">
                       DevOps
                     </a>
@@ -128,15 +175,32 @@ export const SearchBookPage = () => {
               </div>
             </div>
           </div>
-          <div className="mt-3">
-            <h5>Number of Results: ({totalAmountOfBook})</h5>
-          </div>
-          <p>
-            {indexOfFirstBook + 1} to {lastItem} of {totalAmountOfBook} Items:
-          </p>
-          {books.map((book) => (
-            <SearchEachBook book={book} key={book.id} />
-          ))}
+          {totalAmountOfBook > 0 ? (
+            <>
+              <div className="mt-3">
+                <h5>Number of Results: ({totalAmountOfBook})</h5>
+              </div>
+              <p>
+                {indexOfFirstBook + 1} to {lastItem} of {totalAmountOfBook}{" "}
+                Items:
+              </p>
+              {books.map((book) => (
+                <SearchEachBook book={book} key={book.id} />
+              ))}
+            </>
+          ) : (
+            <div className="m-5">
+              <h3>Sorry!Book is not Available!</h3>
+              <a
+                href="#"
+                type="button"
+                className="btn main-color btn-md px-4 me-md-2 fw-bold text-white"
+              >
+                Library Services
+              </a>
+            </div>
+          )}
+
           {totalPages > 1 && (
             <Pagination
               currentPage={currentPage}
