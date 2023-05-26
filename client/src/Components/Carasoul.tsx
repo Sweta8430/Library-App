@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import BookModel from "../model/BookModel";
 import axios from "axios";
 import { Spinner } from "../Utils/Spinner";
+import { Link } from "react-router-dom";
 
 export const Carasoul = () => {
   const [books, setBooks] = useState<BookModel[]>([]);
@@ -114,9 +115,9 @@ export const Carasoul = () => {
         </div>
       </div>
       <div className="homepage-carousel-title mt-3">
-        <a className="btn btn-outline-secondary btn-lg" href="#">
+        <Link className="btn btn-outline-secondary btn-lg" to="/search">
           View More
-        </a>
+        </Link>
       </div>
     </div>
   );
