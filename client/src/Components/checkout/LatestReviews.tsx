@@ -7,7 +7,6 @@ export const LatestReviews: React.FC<{
   bookId: number | undefined;
   mobile: boolean;
 }> = (props) => {
-  console.log(props.reviews.length);
   return (
     <div className={props.mobile ? "mt-3" : "row mt-5"}>
       <div className={props.mobile ? "" : "col-sm-2 col-md-2"}>
