@@ -1,46 +1,84 @@
-# Getting Started with Create React App
+# Book Library App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Book Library App](#library-app)
+  - [About](#about)
+  - [Getting Started](#getting-started)
+    - [Installation (for local setup):](#installation-for-local-setup)
+  - [Project Review](#project-review)
+    - [Main Takeaways:](#main-takeaways)
+    - [Future ideas:](#future-ideas)
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+**Date of completion: 7/6/2020**
 
-### `npm start`
+**Authors: Sweta Shah**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Deployed Website: **
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This is a full-stack Project. A REST API was developed with **Java** using [SptingBoot](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/) framework. A React client was developed using **TypeScipt**.For Database I have used SQL for storing books data.
 
-### `npm test`
+This is a full stack application where user can see the books which are available for then to borrow.They can view each and every book in details.For each book they can also write a review and checkout the book for borrow from library.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+User must sign in for checkout and reviews.
+Sign in Page developed by the **OKTA** Login widget.
 
-### `npm run build`
+Credentials for signin are as follows :-
+Username:-testuser@gmail.com
+Password:-test1234!
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation (for local setup):
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Clone the server git repo
 
-### `npm run eject`
+```
+    git clone https://github.com/Sweta8430/Library-App.git
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Install dependencies in root of project
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  ```
+  cd server
+  Ensure maven is installed on your system.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  mvn -version
+  mvn clean install
+  Run the **application** file to check the server is up and running.
+  ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Start server by entering `sever` directory (ensure nothing is already running on port: 8080).
+  ```
+  cd server
+  go run main.go
+  ```
 
-## Learn More
+-Clone the Client
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+    git clone
+    https://github.com/Sweta8430/Library-App.git
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Start react app by entering `client` directory (ensure nothing is already running on port: 3000).
+
+  ```
+  cd client
+  npm install
+  npm start
+  ```
+
+## Project Review
+
+### Main Takeaways:
+
+- Developed REST API using SpringBoot and Java.
+- Using TypeScript instead of JavaScript to build a React APP.
+- Learned about Okta developer and Jwt Tokens for secure version.
+- Learned bootstrap in detail.
+
+### Future ideas:
+
+- Can reserve a book functionality has been develoed.
+- Can create an admin role sign in where they can add more books.

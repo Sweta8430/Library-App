@@ -18,16 +18,6 @@ export const LatestReviews: React.FC<{
             {props.reviews.slice(0, 3).map((eachReview) => (
               <Review review={eachReview} key={eachReview.id}></Review>
             ))}
-
-            <div className="m-3">
-              <Link
-                type="button"
-                className="btn main-color btn-md text-white"
-                to={`/reviewlist/${props.bookId}`}
-              >
-                Reach all reviews.
-              </Link>
-            </div>
           </>
         ) : (
           <div className="m-3">
