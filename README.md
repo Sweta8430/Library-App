@@ -18,7 +18,13 @@
 
 This is a full-stack Project. A REST API was developed with **Java** using [SptingBoot](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/) framework. A React client was developed using **TypeScipt**.For Database I have used SQL for storing books data.
 
-This is a full stack application where user can see the books which are available for then to borrow.They can view each and every book in details.For each book they can also write a review and checkout the book for borrow from library.
+This is a full stack application:-
+
+- Where user can See all the available books from database.
+- Where user can search the books on different category.
+- Where user can checkout the books.
+- Where user can Add and read a review for particular book
+- Where user can signin with Okta credentials.
 
 User must sign in for checkout and reviews.
 Sign in Page developed by the **OKTA** Login widget.
