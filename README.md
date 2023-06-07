@@ -10,7 +10,7 @@
 
 ## About
 
-**Date of completion: 7/6/2020**
+**Date of completion: 7/6/2023**
 
 **Authors: Sweta Shah**
 
@@ -52,7 +52,7 @@ Password:-test1234!
   Run the **application** file to check the server is up and running.
   ```
 
--Clone the Client
+- Clone the Client
 
 ```
     git clone
