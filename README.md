@@ -42,16 +42,14 @@ Password:-test1234!
   ```
   cd server
   Ensure maven is installed on your system.
-
-  mvn -version
-  mvn clean install
-  Run the **application** file to check the server is up and running.
   ```
 
 - Start server by entering `sever` directory (ensure nothing is already running on port: 8080).
   ```
   cd server
-  go run main.go
+  mvn -version
+  mvn clean install
+  Run the **application** file to check the server is up and running.
   ```
 
 -Clone the Client
