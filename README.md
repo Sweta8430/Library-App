@@ -40,3 +40,37 @@ You are only able to reserve 5 books at a time
 As a signed in user
 you are able to post a review for an individual book.
 ```
+## My Approach
+
+Initially i have taken each user story as a requirement and break it down in to front end and backend requirements.
+
+My approach is to start with the backend where i design my tables and constraints and insert the data and the run the query with the help of SQL workbench to see the datas are there as per expectation.
+
+Then On Intellij I have created the Entities/Repositories /Service and controller for individual stories.
+
+When my route(HTTP request) is created for a user story i have always checked on Postman.Once its successfully giving the desired result i have started with my Frontend part where my API is ready to work with.
+
+With the Frontend Requirements i have designed my mocks UI and component Hirarchy to begin with.
+
+## Getting Started
+
+#### Front-end Dependencies
+
+```
+npx create-react-app client --template typescript
+npm i axios @types/axios
+npm i react-router-dom @types/react-router-dom
+npm i bootstrap
+```
+
+#### Back-end Dependencies
+
+```
+Created the project with Spring initializer :- https://start.spring.io/
+Where Java 17 and Spring boot and Maven
+Dependencies included are
+- JpaRepositories
+- lombok
+- My SQL driver
+- Spring data JPA
+```
