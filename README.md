@@ -7,7 +7,7 @@
     <li><a href="#user-stories">User Stories</a></li>
     <li><a href="#myapproach">My Approach</a></li>
     <li><a href="#getting-started">Getting Started</a></li>
-    <li><a href="#component-hirarchy">Component hirarchy</a></li>
+    <li><a href="#server">Server Architecture</a></li>
     <li><a href="#problem-statements">Problem Statements</a></li>
     <li><a href="#project-review-and-roadmap">Project Review and Roadmap</a></li>
   </ol>
@@ -112,4 +112,4 @@ Dependencies included are
   npm install
   npm start
   ```
-
+## Server Architecture
