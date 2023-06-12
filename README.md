@@ -121,6 +121,8 @@ In order to access data from the database controllers communicate with services 
 Services where all the business logic lies.
 The Spring Boot server receives HTTP requests via REST controllers. These determine the action to be taken determined on the type of request received.
 
+Overall,Serverside applocation follows a typical layered architecture pattern. TheController serves as the entry point for API requests, delegates tasks to the Service, which further interacts with the Repository for database operations. The Review entity represents the table in the database and is persisted and retrieved using JPA annotations and methods provided by Spring Data JPA.
+
 These components are sitting within the Spring Boot framework and rely on functionality provided Spring Boot. For example annotations like @Autowired to connect instances of our components together for us or using application.properties to define properties to be used across the server as a whole.
 
 ## Project Review and Roadmap
