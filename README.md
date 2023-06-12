@@ -113,7 +113,7 @@ Dependencies included are
   ```
 ## Server Architecture
 
-In spring boot component i have <b>Entity</b>, <b>Repositories</b>, <b>Services</b> ,<b>Controllers</b> who communicate with Server and clients.
+In spring boot component i have <b>Entity</b>, <b>Repositories</b>, <b>Services</b> ,<b>Controllers</b> who communicate with Server(SQL) and clients(React).
 
 The Spring Boot server
 Entities defines the Table name and the columns of the specified Table Name.
