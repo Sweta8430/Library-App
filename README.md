@@ -1,88 +1,42 @@
 # Book Library App
 
-- [Book Library App](#library-app)
-  - [About](#about)
-  - [Getting Started](#getting-started)
-    - [Installation (for local setup):](#installation-for-local-setup)
-  - [Project Review](#project-review)
-    - [Main Takeaways:](#main-takeaways)
-    - [Future ideas:](#future-ideas)
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#user-stories">User Stories</a></li>
+    <li><a href="#myapproach">My Approach</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#component-hirarchy">Component hirarchy</a></li>
+    <li><a href="#problem-statements">Problem Statements</a></li>
+    <li><a href="#project-review-and-roadmap">Project Review and Roadmap</a></li>
+  </ol>
+</details>
 
-## About
+## About the project
+Book Library App Where you can see all the books available to borrow in addition to that reviews from other users for an individual book available in the libray. Also as Signedin user you can Reserce the book as well as you can post a re view for each book.
 
-**Date of completion: 7/6/2023**
+The project was to create a full-stack application by implementing a backend (SpringBoot/Java/SQL) front-end(React && TypeScript). The projects purpose is to demonstrate my ability to implement as a Full Stack Developer into TDD environment.
 
-**Authors: Sweta Shah**
-
-**Deployed Website: **
-
-This is a full-stack Project. A REST API was developed with **Java** using [SptingBoot](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/) framework. A React client was developed using **TypeScipt**.For Database I have used SQL for storing books data.
-
-This is a full stack application:-
-
-- Where user can See all the available books from database.
-- Where user can search the books on different category.
-- Where user can checkout the books.
-- Where user can Add and read a review for particular book
-- Where user can signin with Okta credentials.
-
-User must sign in for checkout and reviews.
-Sign in Page developed by the **OKTA** Login widget.
-
-Credentials for signin are as follows :-
-Username:-testuser@gmail.com
-Password:-test1234!
-
-## Getting Started
-
-### Installation (for local setup):
-
-- Clone the server git repo
+## User Stories
 
 ```
-    git clone https://github.com/Sweta8430/Library-App.git
+As a user 
+You are able to see all the available books in a library
+
+As a user 
+When you click on a book you are able to see the reviews left by the other users 
+for a particular book
+
+As a user
+you are able to signin and signout
+
+As a signed in user
+you are able to reserve a book
+
+As a signed in user
+You are only able to reserve 5 books at a time
+
+As a signed in user
+you are able to post a review for an individual book.
 ```
-
-- Install dependencies in root of project
-
-  ```
-  cd server
-  Ensure maven is installed on your system.
-  ```
-
-- Start server by entering `sever` directory (ensure nothing is already running on port: 8080).
-  ```
-  cd server
-  mvn -version
-  mvn clean install
-  Run the **application** file to check the server is up and running.
-  ```
-
-- Clone the Client
-
-```
-    git clone
-    https://github.com/Sweta8430/Library-App.git
-```
-
-- Start react app by entering `client` directory (ensure nothing is already running on port: 3000).
-
-  ```
-  cd client
-  npm install
-  npm start
-  ```
-
-## Project Review
-
-### Main Takeaways:
-
-- Developed REST API using SpringBoot and Java.
-- Using TypeScript instead of JavaScript to build a React APP.
-- Learned about Okta developer and Jwt Tokens for secure version.
-- Learned bootstrap in detail.
-
-### Future ideas:
-
-- Can reserve a book functionality has been develoed.
-- Can create an admin role sign in where they can add more books.
