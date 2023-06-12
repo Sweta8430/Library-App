@@ -74,3 +74,42 @@ Dependencies included are
 - My SQL driver
 - Spring data JPA
 ```
+
+### Installation (for local setup):
+
+- Clone the server git repo
+
+```
+    git clone https://github.com/Sweta8430/Library-App.git
+```
+
+- Install dependencies in root of project
+
+  ```
+  cd server
+  Ensure maven is installed on your system.
+  ```
+
+- Start server by entering `sever` directory (ensure nothing is already running on port: 8080).
+  ```
+  cd server
+  mvn -version
+  mvn clean install
+  Run the **application** file to check the server is up and running.
+  ```
+
+- Clone the Client
+
+```
+    git clone
+    https://github.com/Sweta8430/Library-App.git
+```
+
+- Start react app by entering `client` directory (ensure nothing is already running on port: 3000).
+
+  ```
+  cd client
+  npm install
+  npm start
+  ```
+
