@@ -8,7 +8,6 @@
     <li><a href="#myapproach">My Approach</a></li>
     <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#server-architecture">Server Architecture</a></li>
-    <li><a href="#problem-statements">Problem Statements</a></li>
     <li><a href="#project-review-and-roadmap">Project Review and Roadmap</a></li>
   </ol>
 </details>
@@ -114,5 +113,36 @@ Dependencies included are
   ```
 ## Server Architecture
 
-In spring boot component i have <b>Entity</b>, <b>Repositories</b>,<b>Services</b>,<b>Controllers</>
+In spring boot component i have <b>Entity</b>, <b>Repositories</b>, <b>Services</b> ,<b>Controllers</b> who communicate with Server and clients.
+
+The Spring Boot server
+Entities defines the Table name and the columns of the specified Table Name.
+In order to access data from the database controllers communicate with services and repositories which are interfaces for interacting with the SQL.
+Services where all the business logic lies.
+The Spring Boot server receives HTTP requests via REST controllers. These determine the action to be taken determined on the type of request received.
+
+These components are sitting within the Spring Boot framework and rely on functionality provided Spring Boot. For example annotations like @Autowired to connect instances of our components together for us or using application.properties to define properties to be used across the server as a whole.
+
+## Project Review and Roadmap
+
+This project is really interesting piece of learning as a professional level.
+
+While working with totally new technologies is a different experience together and able to know how they are different from each other.
+
+Say for an Example:
+Mongo DB is document based database NOSQL database which is flexible and adaptable while SQL is structured dataabase where all the things are defined and data are stored in table format.
+Spring boot framwork itself provide so many inbuild libraries so its easy to develop simple code.
+How Java is robust and scalable compare to Java script.
+
+Features i would like to add to my Application.
+
+- More tesing for each and every components to make app robust.
+- Add more HTTP request like DELETE
+- Add Role as a admin where he can reply to user reviews.
+- Making it more secure by adding JWT tokens in detail.
+- Instead of using Okta Developer i can explore more ways to use Sign in.
+
+
+
+
 
