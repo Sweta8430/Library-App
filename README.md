@@ -114,4 +114,5 @@ Dependencies included are
   ```
 ## Server Architecture
 
+In spring boot component i have <b>Entity</b>, <b>Repositories</b>,<b>Services</b>,<b>Controllers</>
 
